@@ -12,5 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require baobab
 //= require turbolinks
-//= require_tree .
+//= require react
+//= require react_ujs
+//= require state
+//= require components

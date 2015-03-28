@@ -1,0 +1,37 @@
+%shadow {
+  box-shadow: 0 1px 2px fade-out($midnight-blue, 0.85);
+}
+
+%inner-shadow {
+  box-shadow: 0 1px 2px fade-out($midnight-blue, 0.85) inset;
+}
+
+%box {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  @extend %shadow;
+
+  & > *:first-child {
+    margin-top: 0;
+  }
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  p {
+    color: $asbestos;
+  }
+
+  hr {
+    border: none;
+    height: 1px;
+    background: $clouds;
+    margin: 1.5rem 0;
+
+    & + * {
+      margin-top: 0;
+    }
+  }
+}

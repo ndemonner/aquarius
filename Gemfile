@@ -27,6 +27,10 @@ gem 'annotate', '~> 2.6.6'
 
 gem 'linefit'
 
+gem 'puma'
+
+gem 'react-rails', github: 'reactjs/react-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

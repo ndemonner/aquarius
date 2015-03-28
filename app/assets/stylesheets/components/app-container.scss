@@ -1,0 +1,17 @@
+.app-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  > .left-side, > .right-side {
+    padding: 1rem;
+  }
+
+  > .left-side {
+    flex: 2;
+  }
+
+  > .right-side {
+    flex: 3;
+  }
+}

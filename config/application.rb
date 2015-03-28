@@ -30,5 +30,9 @@ module Aquarius
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.react.variant = :production
+    config.react.addons = true
+    config.react.jsx_transform_options = { harmony: true }
   end
 end

@@ -1,0 +1,58 @@
+.input {
+  margin: 1.25rem 0;
+
+  > .input-label {
+    display: block;
+    margin-bottom: 0.135rem;
+  }
+
+  &.required > .input-label > label {
+    font-weight: bold;
+  }
+
+  & > input[type=text],
+  & > input[type=password],
+  & > input[type=number],
+  & > input[type=email],
+  & > input[type=tel],
+  & > textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid $silver;
+    border-radius: 0.25rem;
+    transition: border-color 0.25s;
+    @extend %inner-shadow;
+
+    &:focus {
+      outline: none;
+      border-color: $peter-river;
+      color: $peter-river;
+    }
+  }
+}
+
+.input.field_with_errors {
+  label {
+    color: $alizarin;
+  }
+
+  span.error {
+    margin-left: 0.25rem;
+    color: $alizarin;
+  }
+
+  & > input[type=text],
+  & > input[type=password],
+  & > input[type=number],
+  & > input[type=email],
+  & > input[type=tel],
+  & > textarea {
+    border-color: $alizarin;
+    color: $alizarin;
+  }
+}
+
+.input > textarea {
+  height: 7rem;
+}

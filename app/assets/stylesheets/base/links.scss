@@ -1,0 +1,16 @@
+a {
+  font-weight: bold;
+  color: $turqoise;
+  text-decoration: none;
+  transition: all 0.25s;
+
+  &:hover, &:focus, &:active {
+    color: $green-sea;
+    outline: none;
+  }
+
+  > span.ss-icon {
+    vertical-align: middle;
+    margin-right: 0.25rem;
+  }
+}
