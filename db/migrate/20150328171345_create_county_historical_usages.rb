@@ -52,11 +52,6 @@ class CreateCountyHistoricalUsages < ActiveRecord::Migration
       t.decimal :livestock_surface_withdrawals
       t.decimal :livestock_public_withdrawals
       t.decimal :livestock_total_use
-      t.decimal :livestock_reclaimed_use
-      t.decimal :livestock_ground_withdrawals
-      t.decimal :livestock_surface_withdrawals
-      t.decimal :livestock_public_withdrawals
-      t.decimal :livestock_total_use
       t.decimal :aquaculture_ground_withdrawals
       t.decimal :aquaculture_surface_withdrawals
       t.decimal :aquaculture_public_withdrawals
