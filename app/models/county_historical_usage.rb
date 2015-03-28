@@ -54,7 +54,6 @@
 #  livestock_surface_withdrawals            :decimal(, )
 #  livestock_public_withdrawals             :decimal(, )
 #  livestock_total_use                      :decimal(, )
-#  livestock_reclaimed_use                  :decimal(, )
 #  aquaculture_ground_withdrawals           :decimal(, )
 #  aquaculture_surface_withdrawals          :decimal(, )
 #  aquaculture_public_withdrawals           :decimal(, )
