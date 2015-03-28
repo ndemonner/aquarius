@@ -1,1 +1,1 @@
-<%= react_component 'Home' %>
+<%= react_component 'Home', state_target: StateTargetSerializer.new(StateTarget.find(1)).as_json %>

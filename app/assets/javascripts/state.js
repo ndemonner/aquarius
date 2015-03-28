@@ -9,10 +9,19 @@ stateTree = new Baobab({
     total_expected_usage: null,
     target_usages: [],
   },
-  activeCounty: null
+  activeTargetUsage: null
 }, {
   mixins: [React.addons.PureRenderMixin],
   shiftReferences: true
+});
+
+$(document).on('state_target:load', function (e, data) {
+  stateTree.set('state_target', data);
+  stateTree.set('activeTargetUsage', data.target_usages[0]);
+});
+
+$(document).on('target_usage:activate', function (e, data) {
+  stateTree.set('activeTargetUsage', data);
 });
 
 $(document).on('state_reduction:change', function (e, reduction) {
@@ -20,7 +29,29 @@ $(document).on('state_reduction:change', function (e, reduction) {
   var xhr = $.ajax({
     type: 'PATCH',
     url: '/state_targets/' + stateTree.select('state_target').get('id'),
-    data: JSON.stringify({reduction: reduction}),
+    data: JSON.stringify({state_target: {reduction: reduction}}),
+    contentType: 'application/json'
+  });
+
+  xhr.done(function (newTree) {
+    stateTree.set('state_target', newTree);
+  });
+
+  xhr.fail(function (err) {
+    throw err.responseText;
+  })
+});
+
+$(document).on('target_usage:change', function (e, data) {
+  // data => { id: 1, changes: {} }
+  stateTree.select('state_target', 'target_usages').apply(function (current) {
+    _.assign(_.findWhere(current, {id: data.id}), data.changes);
+    return current;
+  });
+  var xhr = $.ajax({
+    type: 'PATCH',
+    url: '/target_usages/' + data.id,
+    data: JSON.stringify({target_usage: changes}),
     contentType: 'application/json'
   });
 
