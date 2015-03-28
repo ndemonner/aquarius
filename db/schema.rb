@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328201732) do
+ActiveRecord::Schema.define(version: 20150328205045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,7 +162,7 @@ ActiveRecord::Schema.define(version: 20150328201732) do
 
   create_table "state_targets", force: :cascade do |t|
     t.string   "name"
-    t.integer  "reduction"
+    t.decimal  "reduction"
     t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -171,7 +171,7 @@ ActiveRecord::Schema.define(version: 20150328201732) do
   create_table "target_usages", force: :cascade do |t|
     t.integer  "county_id"
     t.integer  "state_target_id"
-    t.decimal  "total_consumption_target"
+    t.decimal  "consumption"
     t.decimal  "industrial_reduction"
     t.decimal  "domestic_reduction"
     t.decimal  "agriculture_reduction"

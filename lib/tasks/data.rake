@@ -4,14 +4,17 @@ namespace :data do
 
     table = CSV.open('waterdata.csv', col_sep: "\t", headers: true).read
     table.each do |row|
-      county = County.new
+      county = County.where({
+        name: row["county_nm"],
+        code: row["county_cd"],
+        state: row["state"]
+      }).first_or_create!
+      
       chu = HistoricalUsage.new
 
       chu.year = row["year"].to_i
-      county.name = row["county_nm"]
-      county.code = row["county_cd"]
-      county.state = row["state"]
-
+      chu.county = county
+      
       chu.total_population = row["Total Population total population of area, in thousands"]
       chu.served_population = row["Public Supply total population served, in thousands"]
       chu.commercial_ground_withdrawals = row["Commercial total self-supplied withdrawals, groundwater, in Mgal/d"]
@@ -70,7 +73,6 @@ namespace :data do
       chu.golf_reclaimed_use = row["Irrigation, Golf Courses reclaimed wastewater for golf courses, in Mgal/d"]
       chu.total_public_reclaimed = row["Wastewater Treatment reclaimed wastewater released by public wastewater facilities, in Mgal/d"]
       chu.save!
-      county.save!
     end
   end
 end
