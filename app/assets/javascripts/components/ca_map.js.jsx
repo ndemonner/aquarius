@@ -2,7 +2,12 @@ var CaMap = React.createClass({
   mixins: [stateTree.mixin],
   
   componentDidMount: function() {
-    this.createMap()
+    this.createMap();
+    this.updateMap();
+  },
+  
+  componentDidUpdate: function() {
+    this.updateMap();
   },
   
   createMap: function(){
@@ -32,7 +37,7 @@ var CaMap = React.createClass({
 		  svg.selectAll(".subunit")
 			   .data(topojson.feature(ca, ca.objects.subunits).features)
 			   .enter().append("path")
-			   .attr("class", function(d) { return "subunit " + d.properties.name; })
+			   .attr("class", function(d) { return "subunit " + _.snakeCase(d.properties.fullName); })
 			   .attr("d", path)
 			   .on("mouseover", function(d){ //tooltip
 			     div.transition()
@@ -69,8 +74,25 @@ var CaMap = React.createClass({
     stateTarget: ['state_target']
   },
   
+  findUsage: function(countyName) {
+    return _.findIndex(this.state.cursors.stateTarget.target_usages, (targetUsage) => { return targetUsage.county_name === countyName });
+  },
+  
+  updateMap: function() {
+    _this = this;
+    _.each(this.state.cursors.stateTarget.target_usages, function (usage) {
+      var el = d3.select("." + _.snakeCase(usage.county_name));
+      var g = parseFloat(usage.balance).toFixed(3);
+      if (g < 0) {
+        el.style('fill', 'rgb(231, 76, 60)');
+      } else {
+        el.style('fill', 'rgb(46, 204, 113)');
+      }
+    });
+  },
+  
   changeCounty: function (countyName, e) {
-    var targetUsage = _.findIndex(this.state.cursors.stateTarget.target_usages, (targetUsage) => { return targetUsage.county_name === countyName });
+    var targetUsage = this.findUsage(countyName);
     $(document).trigger('target_usage:activate', targetUsage);
   },
 
