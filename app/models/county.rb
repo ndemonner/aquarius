@@ -9,4 +9,6 @@
 #
 
 class County < ActiveRecord::Base
+  has_many :future_usages
+  has_many :historical_usages
 end

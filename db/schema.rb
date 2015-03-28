@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150328193300) do
+ActiveRecord::Schema.define(version: 20150328194406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,11 +22,8 @@ ActiveRecord::Schema.define(version: 20150328193300) do
     t.string "state"
   end
 
-  create_table "county_future_usages", force: :cascade do |t|
+  create_table "future_usages", force: :cascade do |t|
     t.string   "year"
-    t.string   "name"
-    t.string   "code"
-    t.string   "state"
     t.decimal  "total_population"
     t.decimal  "served_population"
     t.decimal  "commercial_ground_withdrawals"
@@ -91,13 +88,11 @@ ActiveRecord::Schema.define(version: 20150328193300) do
     t.decimal  "total_public_reclaimed"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "county_id"
   end
 
-  create_table "county_historical_usages", force: :cascade do |t|
+  create_table "historical_usages", force: :cascade do |t|
     t.string   "year"
-    t.string   "name"
-    t.string   "code"
-    t.string   "state"
     t.decimal  "total_population"
     t.decimal  "served_population"
     t.decimal  "commercial_ground_withdrawals"
@@ -162,6 +157,7 @@ ActiveRecord::Schema.define(version: 20150328193300) do
     t.decimal  "total_public_reclaimed"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "county_id"
   end
 
 end

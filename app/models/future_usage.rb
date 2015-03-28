@@ -1,12 +1,9 @@
 # == Schema Information
 #
-# Table name: county_historical_usages
+# Table name: future_usages
 #
 #  id                                       :integer          not null, primary key
 #  year                                     :string
-#  name                                     :string
-#  code                                     :string
-#  state                                    :string
 #  total_population                         :decimal(, )
 #  served_population                        :decimal(, )
 #  commercial_ground_withdrawals            :decimal(, )
@@ -71,11 +68,9 @@
 #  total_public_reclaimed                   :decimal(, )
 #  created_at                               :datetime         not null
 #  updated_at                               :datetime         not null
+#  county_id                                :integer
 #
 
-# NOTES ABOUT DATA
-# Population is expressed in thousands
-# Usage is expressed in Mgal/d
-
-class CountyHistoricalUsage < ActiveRecord::Base
+class FutureUsage < ActiveRecord::Base
+  belongs_to :county
 end
