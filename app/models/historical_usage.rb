@@ -4,6 +4,9 @@
 #
 #  id                                       :integer          not null, primary key
 #  year                                     :string
+#  name                                     :string
+#  code                                     :string
+#  state                                    :string
 #  total_population                         :decimal(, )
 #  served_population                        :decimal(, )
 #  commercial_ground_withdrawals            :decimal(, )

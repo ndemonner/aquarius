@@ -4,6 +4,9 @@
 #
 #  id                                       :integer          not null, primary key
 #  year                                     :string
+#  name                                     :string
+#  code                                     :string
+#  state                                    :string
 #  total_population                         :decimal(, )
 #  served_population                        :decimal(, )
 #  commercial_ground_withdrawals            :decimal(, )
@@ -73,4 +76,24 @@
 
 class FutureUsage < ActiveRecord::Base
   belongs_to :county
+
+  UNPREDICTED_COLUMNS = [
+    'id',
+    'year',
+    'created_at',
+    'updated_at'
+  ].freeze
+
+  def self.predict(args)
+    years = args.fetch(:years)
+    historicals = args.fetch(:historical_usages).sort_by(&:year)
+    # Map predictions per column
+    cols = self.class.columns.map(&:name) - UNPREDICTED_COLUMNS
+    xs = historicals.map(&:year)
+    cols.map do |column|
+      line = LineFit.new
+      ys = historicals.map(&column.to_sym)
+
+    end
+  end
 end
