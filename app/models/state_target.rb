@@ -38,4 +38,19 @@ class StateTarget < ActiveRecord::Base
       target.save!
     end
   end
+  
+  def total_future_usage
+    future_usages.to_a.sum(&:total_consumption)
+  end
+  
+  def total_goal_usage
+    target_usages.to_a.sum(&:consumption)
+  end
+  
+  def total_expected_usage
+    target_usages.to_a.sum do |target|
+      UsageCalculator.new(target).total
+    end
+  end
+  
 end
