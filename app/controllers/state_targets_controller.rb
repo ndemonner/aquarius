@@ -15,7 +15,7 @@ class StateTargetsController < ApplicationController
   
   def update
     @state_target = StateTarget.find(params[:id])
-    @state_target.reduction = params[:reduction]
+    @state_target.reduction = params[:state_target][:reduction]
     @state_target.save!
     render json: @state_target
   end
