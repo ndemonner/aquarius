@@ -163,7 +163,7 @@ ActiveRecord::Schema.define(version: 20150328201732) do
   create_table "state_targets", force: :cascade do |t|
     t.string   "name"
     t.integer  "reduction"
-    t.integer   "year"
+    t.integer  "year"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

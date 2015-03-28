@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  name       :string
 #  reduction  :integer
-#  year       :string
+#  year       :integer
 #  created_at :datetime
 #  updated_at :datetime
 #
