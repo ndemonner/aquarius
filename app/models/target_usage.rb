@@ -17,9 +17,11 @@
 class TargetUsage < ActiveRecord::Base
   belongs_to :county
   belongs_to :state_target
-  
+
+  scope :sort_by_county_name, -> { joins(:county).order('counties.name asc') }
+
   def future
     county.future_usages.where(year: state_target.year).first
   end
-  
+
 end

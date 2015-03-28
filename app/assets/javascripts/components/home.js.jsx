@@ -1,8 +1,7 @@
 var Home = React.createClass({
   mixins: [stateTree.mixin],
   cursors: {
-    stateTarget: ['state_target'],
-    activeTargetUsage: ['activeTargetUsage']
+    stateTarget: ['state_target']
   },
 
   componentWillMount: function () {
@@ -19,19 +18,18 @@ var Home = React.createClass({
     $(document).trigger('state_reduction:set', newValue);
   },
 
-  changeCounty: function (targetUsage, e) {
+  changeCounty: function (idx, e) {
     e.preventDefault();
-    $(document).trigger('target_usage:activate', targetUsage);
+    $(document).trigger('target_usage:activate', idx);
   },
 
   normalizeReduction: function () {
-    var result = parseFloat(this.state.cursors.stateTarget.reduction) * 100;
-    return result;
+    return (parseFloat(this.state.cursors.stateTarget.reduction) * 100).toFixed(0);
   },
 
   render: function () {
-    var counties = _.map(this.state.cursors.stateTarget.target_usages, (targetUsage) => {
-      var handler = this.changeCounty.bind(this, targetUsage);
+    var counties = _.map(this.state.cursors.stateTarget.target_usages, (targetUsage, idx) => {
+      var handler = this.changeCounty.bind(this, idx);
       return <a href="#" key={targetUsage.id} onClick={handler}>{targetUsage.county_name}</a>;
     });
     return <div className="app-container">
@@ -42,6 +40,9 @@ var Home = React.createClass({
             <label>Target Reduction</label>
             <input type="range" onChange={this.changeReduction} onMouseUp={this.setReduction} value={this.normalizeReduction()} />
           </div>
+          <h4>
+            Reduction is currently set to {this.normalizeReduction()}%
+          </h4>
           <table>
             <thead>
             </thead>

@@ -30,6 +30,11 @@
       color: $peter-river;
     }
   }
+
+  & > input[type=range] {
+    display: block;
+    width: 100%;
+  }
 }
 
 .input.field_with_errors {

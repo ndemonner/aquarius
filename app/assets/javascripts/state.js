@@ -9,7 +9,7 @@ stateTree = new Baobab({
     total_expected_usage: null,
     target_usages: [],
   },
-  activeTargetUsage: null
+  activeTargetUsage: 0
 }, {
   mixins: [React.addons.PureRenderMixin],
   shiftReferences: true
@@ -17,7 +17,7 @@ stateTree = new Baobab({
 
 $(document).on('state_target:load', function (e, data) {
   stateTree.set('state_target', data);
-  stateTree.set('activeTargetUsage', data.target_usages[0]);
+  stateTree.set('activeTargetUsage', 0);
 });
 
 $(document).on('target_usage:activate', function (e, data) {
@@ -47,7 +47,6 @@ $(document).on('state_reduction:set', function (e, reduction) {
 });
 
 $(document).on('target_usage:change', function (e, data) {
-  // data => { id: 1, changes: {} }
   stateTree.select('state_target', 'target_usages').apply(function (current) {
     _.assign(_.findWhere(current, {id: data.id}), data.changes);
     return current;
