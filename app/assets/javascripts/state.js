@@ -51,10 +51,17 @@ $(document).on('target_usage:change', function (e, data) {
     _.assign(_.findWhere(current, {id: data.id}), data.changes);
     return current;
   });
+});
+
+$(document).on('target_usage:set', function (e, data) {
+  stateTree.select('state_target', 'target_usages').apply(function (current) {
+    _.assign(_.findWhere(current, {id: data.id}), data.changes);
+    return current;
+  });
   var xhr = $.ajax({
     type: 'PATCH',
     url: '/target_usages/' + data.id,
-    data: JSON.stringify({target_usage: changes}),
+    data: JSON.stringify({target_usage: data.changes}),
     contentType: 'application/json'
   });
 
