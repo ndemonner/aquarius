@@ -160,4 +160,24 @@ ActiveRecord::Schema.define(version: 20150328201732) do
     t.integer  "year"
   end
 
+  create_table "state_targets", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "reduction"
+    t.integer   "year"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "target_usages", force: :cascade do |t|
+    t.integer  "county_id"
+    t.integer  "state_target_id"
+    t.decimal  "total_consumption_target"
+    t.decimal  "industrial_reduction"
+    t.decimal  "domestic_reduction"
+    t.decimal  "agriculture_reduction"
+    t.decimal  "energy_reduction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
 end
