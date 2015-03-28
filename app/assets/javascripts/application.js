@@ -15,7 +15,9 @@
 //= require lodash
 //= require baobab
 //= require turbolinks
+//= require textures
 //= require react
 //= require react_ujs
 //= require state
 //= require components
+

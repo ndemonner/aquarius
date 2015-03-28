@@ -10,6 +10,14 @@
 
 }
 
+.bad {
+  fill: red !important;
+}
+
+.good {
+  fill: green !important;
+}
+
 .exterior-boundary {
 	fill: none;
 	stroke: black;
