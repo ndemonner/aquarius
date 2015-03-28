@@ -53,9 +53,7 @@ var Home = React.createClass({
         <CountyBox />
       </div>
       <div className="right-side">
-        <div className="county-chooser">
-          {counties}
-        </div>
+        <CaMap height="600" width="400" />
       </div>
     </div>;
   }
