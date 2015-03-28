@@ -70,7 +70,7 @@ var CaMap = React.createClass({
   },
   
   changeCounty: function (countyName, e) {
-    var targetUsage = _.find(this.state.cursors.stateTarget.target_usages, (targetUsage) => { return targetUsage.county_name === countyName });
+    var targetUsage = _.findIndex(this.state.cursors.stateTarget.target_usages, (targetUsage) => { return targetUsage.county_name === countyName });
     $(document).trigger('target_usage:activate', targetUsage);
   },
 
