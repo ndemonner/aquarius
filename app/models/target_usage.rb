@@ -18,7 +18,8 @@ class TargetUsage < ActiveRecord::Base
   belongs_to :county
   belongs_to :state_target
   
-  def associated_future_usage
+  def future
     county.future_usages.where(year: state_target.year).first
   end
+  
 end

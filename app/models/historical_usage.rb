@@ -76,5 +76,7 @@
 # Usage is expressed in Mgal/d
 
 class HistoricalUsage < ActiveRecord::Base
+  include Totals
+  
   belongs_to :county
 end

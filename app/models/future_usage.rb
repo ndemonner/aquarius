@@ -72,6 +72,8 @@
 #
 
 class FutureUsage < ActiveRecord::Base
+  include Totals
+  
   belongs_to :county
 
   UNPREDICTED_COLUMNS = [
