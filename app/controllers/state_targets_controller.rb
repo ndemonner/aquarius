@@ -1,4 +1,10 @@
 class StateTargetsController < ApplicationController
+  
+  def index
+    @targets = StateTarget.all
+    render json: @targets
+  end
+  
   def create
   end
   
