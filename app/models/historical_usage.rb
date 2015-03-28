@@ -3,10 +3,6 @@
 # Table name: historical_usages
 #
 #  id                                       :integer          not null, primary key
-#  year                                     :string
-#  name                                     :string
-#  code                                     :string
-#  state                                    :string
 #  total_population                         :decimal(, )
 #  served_population                        :decimal(, )
 #  commercial_ground_withdrawals            :decimal(, )
@@ -72,6 +68,7 @@
 #  created_at                               :datetime         not null
 #  updated_at                               :datetime         not null
 #  county_id                                :integer
+#  year                                     :integer
 #
 
 # NOTES ABOUT DATA

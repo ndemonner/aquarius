@@ -3,10 +3,6 @@
 # Table name: future_usages
 #
 #  id                                       :integer          not null, primary key
-#  year                                     :string
-#  name                                     :string
-#  code                                     :string
-#  state                                    :string
 #  total_population                         :decimal(, )
 #  served_population                        :decimal(, )
 #  commercial_ground_withdrawals            :decimal(, )
@@ -72,6 +68,7 @@
 #  created_at                               :datetime         not null
 #  updated_at                               :datetime         not null
 #  county_id                                :integer
+#  year                                     :integer
 #
 
 class FutureUsage < ActiveRecord::Base
@@ -84,16 +81,19 @@ class FutureUsage < ActiveRecord::Base
     'updated_at'
   ].freeze
 
-  def self.predict(args)
-    years = args.fetch(:years)
-    historicals = args.fetch(:historical_usages).sort_by(&:year)
+  def self.predict!(year, historicals)
+    historicals = historicals.sort_by(&:year)
     # Map predictions per column
-    cols = self.class.columns.map(&:name) - UNPREDICTED_COLUMNS
-    xs = historicals.map(&:year)
-    cols.map do |column|
+    cols = columns.map(&:name) - UNPREDICTED_COLUMNS
+    xs = historicals.map(&:year).map(&:to_i)
+    future_usage = find_or_initialize_by(county_id: historicals.first.county.id, year: year.to_i)
+    cols.each do |column|
+      next unless historicals.first.send(column).present?
       line = LineFit.new
       ys = historicals.map(&column.to_sym)
-
+      line.setData(xs, ys)
+      future_usage.send "#{column}=", line.forecast(year.to_i)
     end
+    future_usage.save!
   end
 end

@@ -1,16 +1,17 @@
 namespace :data do
   task import: :environment do |t|
     require 'csv'
-    
+
     table = CSV.open('waterdata.csv', col_sep: "\t", headers: true).read
     table.each do |row|
-      chu = CountyHistoricalUsage.new
-  
-      chu.year = row["year"]
-      chu.name = row["county_nm"]
-      chu.code = row["county_cd"]
-      chu.state = row["state"]
-      
+      county = County.new
+      chu = HistoricalUsage.new
+
+      chu.year = row["year"].to_i
+      county.name = row["county_nm"]
+      county.code = row["county_cd"]
+      county.state = row["state"]
+
       chu.total_population = row["Total Population total population of area, in thousands"]
       chu.served_population = row["Public Supply total population served, in thousands"]
       chu.commercial_ground_withdrawals = row["Commercial total self-supplied withdrawals, groundwater, in Mgal/d"]
@@ -69,6 +70,7 @@ namespace :data do
       chu.golf_reclaimed_use = row["Irrigation, Golf Courses reclaimed wastewater for golf courses, in Mgal/d"]
       chu.total_public_reclaimed = row["Wastewater Treatment reclaimed wastewater released by public wastewater facilities, in Mgal/d"]
       chu.save!
+      county.save!
     end
   end
 end
