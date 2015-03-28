@@ -9,13 +9,24 @@ var Home = React.createClass({
     $(document).trigger('state_target:load', this.props.state_target);
   },
 
+  changeReduction: function (e) {
+    var newValue = e.target.value / 100;
+    $(document).trigger('state_reduction:change', newValue);
+  },
+
   setReduction: function (e) {
-    $(document).trigger('state_reduction:change', e.target.value)
+    var newValue = e.target.value / 100;
+    $(document).trigger('state_reduction:set', newValue);
   },
 
   changeCounty: function (targetUsage, e) {
     e.preventDefault();
     $(document).trigger('target_usage:activate', targetUsage);
+  },
+
+  normalizeReduction: function () {
+    var result = parseFloat(this.state.cursors.stateTarget.reduction) * 100;
+    return result;
   },
 
   render: function () {
@@ -29,7 +40,7 @@ var Home = React.createClass({
           <h3>{this.state.cursors.stateTarget.name}</h3>
           <div className="input">
             <label>Target Reduction</label>
-            <input type="text" onChange={this.setReduction} />
+            <input type="range" onChange={this.changeReduction} onMouseUp={this.setReduction} value={this.normalizeReduction()} />
           </div>
           <table>
             <thead>

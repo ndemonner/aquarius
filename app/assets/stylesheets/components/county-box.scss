@@ -1,4 +1,14 @@
 .county-box {
   @extend %box;
   margin-top: 1rem;
+
+  > .balance {
+    &.-deficit {
+      color: $alizarin;
+    }
+
+    &.-surplus {
+      color: $emerald;
+    }
+  }
 }

@@ -26,6 +26,10 @@ $(document).on('target_usage:activate', function (e, data) {
 
 $(document).on('state_reduction:change', function (e, reduction) {
   stateTree.select('state_target').set('reduction', reduction);
+});
+
+$(document).on('state_reduction:set', function (e, reduction) {
+  stateTree.select('state_target').set('reduction', reduction);
   var xhr = $.ajax({
     type: 'PATCH',
     url: '/state_targets/' + stateTree.select('state_target').get('id'),
