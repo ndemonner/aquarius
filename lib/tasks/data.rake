@@ -75,4 +75,12 @@ namespace :data do
       chu.save!
     end
   end
+
+  task import_futures: :environment do |t|
+    County.find_each do |county|
+      [2015, 2016, 2017, 2018, 2019, 2020].each do |year|
+        FutureUsage.predict!(year, county.historical_usages)
+      end
+    end
+  end
 end
