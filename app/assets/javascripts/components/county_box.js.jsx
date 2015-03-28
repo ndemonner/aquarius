@@ -14,7 +14,7 @@ var CountyBox = React.createClass({
       type = 'surplus';
     }
     return <h1 className={"balance -" + type}>
-      {g}
+      {g} Mgal/d
     </h1>;
   },
 
