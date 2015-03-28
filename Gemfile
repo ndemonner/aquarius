@@ -26,6 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'annotate', '~> 2.6.6'
 
 gem 'linefit'
+gem 'active_model_serializers', '~> 0.8.0'
 
 gem 'puma'
 

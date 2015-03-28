@@ -94,7 +94,8 @@ class FutureUsage < ActiveRecord::Base
       line = LineFit.new
       ys = historicals.map(&column.to_sym)
       line.setData(xs, ys)
-      future_usage.send "#{column}=", line.forecast(year.to_i)
+      forcast = [line.forecast(year.to_i), 0].max
+      future_usage.send "#{column}=", forcast
     end
     future_usage.save!
   end
