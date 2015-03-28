@@ -7,69 +7,69 @@
 #  name                                     :string
 #  code                                     :string
 #  state                                    :string
-#  total_population                         :string
-#  served_population                        :string
-#  commercial_ground_withdrawals            :string
-#  commercial_surface_withdrawals           :string
-#  commercial_public_withdrawals            :string
-#  commercial_total_use                     :string
-#  commercial_reclaimed_use                 :string
-#  industrial_ground_withdrawals            :string
-#  industrial_surface_withdrawals           :string
-#  industrial_public_withdrawals            :string
-#  industrial_total_use                     :string
-#  industrial_reclaimed_use                 :string
-#  domestic_ground_withdrawals              :string
-#  domestic_surface_withdrawals             :string
-#  domestic_public_withdrawals              :string
-#  domestic_total_use                       :string
-#  domestic_per_capita_self_supplied        :string
-#  domestic_per_capita_public_supplied      :string
-#  fossil_ground_withdrawals                :string
-#  fossil_surface_withdrawals               :string
-#  fossil_public_withdrawals                :string
-#  fossil_total_use                         :string
-#  fossil_reclaimed_use                     :string
-#  geothermal_ground_withdrawals            :string
-#  geothermal_surface_withdrawals           :string
-#  geothermal_public_withdrawals            :string
-#  geothermal_total_use                     :string
-#  geothermal_reclaimed_use                 :string
-#  nuclear_ground_withdrawals               :string
-#  nuclear_surface_withdrawals              :string
-#  nuclear_public_withdrawals               :string
-#  nuclear_total_use                        :string
-#  nuclear_reclaimed_use                    :string
-#  total_thermoelectric_ground_withdrawals  :string
-#  total_thermoelectric_surface_withdrawals :string
-#  total_thermoelectric_public_withdrawals  :string
-#  total_thermoelectric_total_use           :string
-#  total_thermoelectric_reclaimed_use       :string
-#  mining_ground_withdrawals                :string
-#  mining_surface_withdrawals               :string
-#  mining_public_withdrawals                :string
-#  mining_total_use                         :string
-#  mining_reclaimed_use                     :string
-#  livestock_ground_withdrawals             :string
-#  livestock_surface_withdrawals            :string
-#  livestock_public_withdrawals             :string
-#  livestock_total_use                      :string
-#  livestock_reclaimed_use                  :string
-#  aquaculture_ground_withdrawals           :string
-#  aquaculture_surface_withdrawals          :string
-#  aquaculture_public_withdrawals           :string
-#  aquaculture_total_use                    :string
-#  crop_ground_withdrawals                  :string
-#  crop_surface_withdrawals                 :string
-#  crop_public_withdrawals                  :string
-#  crop_total_use                           :string
-#  crop_reclaimed_use                       :string
-#  golf_ground_withdrawals                  :string
-#  golf_surface_withdrawals                 :string
-#  golf_public_withdrawals                  :string
-#  golf_total_use                           :string
-#  golf_reclaimed_use                       :string
-#  total_public_reclaimed                   :string
+#  total_population                         :decimal(, )
+#  served_population                        :decimal(, )
+#  commercial_ground_withdrawals            :decimal(, )
+#  commercial_surface_withdrawals           :decimal(, )
+#  commercial_public_withdrawals            :decimal(, )
+#  commercial_total_use                     :decimal(, )
+#  commercial_reclaimed_use                 :decimal(, )
+#  industrial_ground_withdrawals            :decimal(, )
+#  industrial_surface_withdrawals           :decimal(, )
+#  industrial_public_withdrawals            :decimal(, )
+#  industrial_total_use                     :decimal(, )
+#  industrial_reclaimed_use                 :decimal(, )
+#  domestic_ground_withdrawals              :decimal(, )
+#  domestic_surface_withdrawals             :decimal(, )
+#  domestic_public_withdrawals              :decimal(, )
+#  domestic_total_use                       :decimal(, )
+#  domestic_per_capita_self_supplied        :decimal(, )
+#  domestic_per_capita_public_supplied      :decimal(, )
+#  fossil_ground_withdrawals                :decimal(, )
+#  fossil_surface_withdrawals               :decimal(, )
+#  fossil_public_withdrawals                :decimal(, )
+#  fossil_total_use                         :decimal(, )
+#  fossil_reclaimed_use                     :decimal(, )
+#  geothermal_ground_withdrawals            :decimal(, )
+#  geothermal_surface_withdrawals           :decimal(, )
+#  geothermal_public_withdrawals            :decimal(, )
+#  geothermal_total_use                     :decimal(, )
+#  geothermal_reclaimed_use                 :decimal(, )
+#  nuclear_ground_withdrawals               :decimal(, )
+#  nuclear_surface_withdrawals              :decimal(, )
+#  nuclear_public_withdrawals               :decimal(, )
+#  nuclear_total_use                        :decimal(, )
+#  nuclear_reclaimed_use                    :decimal(, )
+#  total_thermoelectric_ground_withdrawals  :decimal(, )
+#  total_thermoelectric_surface_withdrawals :decimal(, )
+#  total_thermoelectric_public_withdrawals  :decimal(, )
+#  total_thermoelectric_total_use           :decimal(, )
+#  total_thermoelectric_reclaimed_use       :decimal(, )
+#  mining_ground_withdrawals                :decimal(, )
+#  mining_surface_withdrawals               :decimal(, )
+#  mining_public_withdrawals                :decimal(, )
+#  mining_total_use                         :decimal(, )
+#  mining_reclaimed_use                     :decimal(, )
+#  livestock_ground_withdrawals             :decimal(, )
+#  livestock_surface_withdrawals            :decimal(, )
+#  livestock_public_withdrawals             :decimal(, )
+#  livestock_total_use                      :decimal(, )
+#  livestock_reclaimed_use                  :decimal(, )
+#  aquaculture_ground_withdrawals           :decimal(, )
+#  aquaculture_surface_withdrawals          :decimal(, )
+#  aquaculture_public_withdrawals           :decimal(, )
+#  aquaculture_total_use                    :decimal(, )
+#  crop_ground_withdrawals                  :decimal(, )
+#  crop_surface_withdrawals                 :decimal(, )
+#  crop_public_withdrawals                  :decimal(, )
+#  crop_total_use                           :decimal(, )
+#  crop_reclaimed_use                       :decimal(, )
+#  golf_ground_withdrawals                  :decimal(, )
+#  golf_surface_withdrawals                 :decimal(, )
+#  golf_public_withdrawals                  :decimal(, )
+#  golf_total_use                           :decimal(, )
+#  golf_reclaimed_use                       :decimal(, )
+#  total_public_reclaimed                   :decimal(, )
 #  created_at                               :datetime         not null
 #  updated_at                               :datetime         not null
 #
