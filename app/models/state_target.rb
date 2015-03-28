@@ -16,8 +16,12 @@ class StateTarget < ActiveRecord::Base
   after_create :create_target_usages
   after_save :update_county_targets, if: :reduction_changed?
   
+  def county_ids
+    County.where(state: name).pluck(:id)
+  end
+  
   def future_usages
-    FutureUsage.where(year: year)
+    FutureUsage.where(year: year, county_id: county_ids)
   end
   
   def create_target_usages
@@ -34,7 +38,7 @@ class StateTarget < ActiveRecord::Base
   
   def update_county_targets
     target_usages.find_each do |target|
-      target.total_consumption_target = target.future.total_consumption * (1 - reduction)
+      target.consumption = target.future.total_consumption * (1 - reduction)
       target.save!
     end
   end

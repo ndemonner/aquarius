@@ -7,7 +7,7 @@ namespace :data do
       county = County.where({
         name: row["county_nm"],
         code: row["county_cd"],
-        state: row["state"]
+        state: row["state_name"]
       }).first_or_create!
       
       chu = HistoricalUsage.new
@@ -81,6 +81,12 @@ namespace :data do
       [2015, 2016, 2017, 2018, 2019, 2020].each do |year|
         FutureUsage.predict!(year, county.historical_usages)
       end
+    end
+  end
+  
+  task create_targets: :environment do |t|
+    [2015, 2016, 2017, 2018, 2019, 2020].each do |year|
+      StateTarget.create!({year: year, name: "California", reduction: 0.1})
     end
   end
 end
