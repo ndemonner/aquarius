@@ -86,7 +86,7 @@ namespace :data do
   
   task create_targets: :environment do |t|
     [2015, 2016, 2017, 2018, 2019, 2020].each do |year|
-      StateTarget.create!({year: year, name: "California", reduction: 0.1})
+      StateTarget.create!({year: year, name: "California", reduction: 0})
     end
   end
 end

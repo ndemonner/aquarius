@@ -53,6 +53,7 @@ var CountyBox = React.createClass({
             onChange={changeHandler}
             onMouseUp={setHandler}
             value={this.normalizeReduction(sector)} />
+          <div className="projected">Projected: {parseFloat(this.targetUsage()[sector + '_usage']).toFixed(3)} Mgal/d</div>
         </div>;
       });
 

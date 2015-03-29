@@ -3,6 +3,8 @@
   margin-top: 1rem;
 
   > .balance {
+    color: $emerald;
+    
     &.-deficit {
       color: $alizarin;
     }
@@ -10,5 +12,11 @@
     &.-surplus {
       color: $emerald;
     }
+  }
+  
+  .projected {
+    color: $asbestos;
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
   }
 }
