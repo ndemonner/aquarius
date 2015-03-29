@@ -39,15 +39,15 @@ var Home = React.createClass({
           <table>
             <tbody>
               <tr>
-                <td>{this.state.cursors.stateTarget.year} Historical Projection</td>
+                <td>{this.state.cursors.stateTarget.year} Historical Projection:</td>
                 <td>{parseFloat(this.state.cursors.stateTarget.total_future_usage).toFixed(3)} Mgal/d</td>
               </tr>
               <tr>
-                <td>{this.state.cursors.stateTarget.year} Mandated Projection</td>
+                <td>{this.state.cursors.stateTarget.year} Mandated Projection:</td>
                 <td>{parseFloat(this.state.cursors.stateTarget.total_goal_usage).toFixed(3)} Mgal/d</td>
               </tr>
               <tr>
-                <td>{this.state.cursors.stateTarget.year} Estimated Projection</td>
+                <td>{this.state.cursors.stateTarget.year} Estimated Projection:</td>
                 <td>{parseFloat(this.state.cursors.stateTarget.total_expected_usage).toFixed(3)} Mgal/d</td>
               </tr>
             </tbody>

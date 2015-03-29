@@ -4,4 +4,17 @@
   *:last-child {
     margin-bottom: 0;
   }
+
+  table {
+    width: 100%;
+    tr {
+      td {
+        text-align: right;
+
+        &:last-child {
+          font-weight: bold;
+        }
+      }
+    }
+  }
 }
