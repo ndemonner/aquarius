@@ -36,19 +36,29 @@ var Home = React.createClass({
       <div className="left-side">
         <div className="state-box">
           <h3>{this.state.cursors.stateTarget.name}</h3>
+          <table>
+            <tbody>
+              <tr>
+                <td>{this.state.cursors.stateTarget.year} Historical Projection</td>
+                <td>{parseFloat(this.state.cursors.stateTarget.total_future_usage).toFixed(3)} Mgal/d</td>
+              </tr>
+              <tr>
+                <td>{this.state.cursors.stateTarget.year} Mandated Projection</td>
+                <td>{parseFloat(this.state.cursors.stateTarget.total_goal_usage).toFixed(3)} Mgal/d</td>
+              </tr>
+              <tr>
+                <td>{this.state.cursors.stateTarget.year} Estimated Projection</td>
+                <td>{parseFloat(this.state.cursors.stateTarget.total_expected_usage).toFixed(3)} Mgal/d</td>
+              </tr>
+            </tbody>
+          </table>
           <div className="input">
-            <label>Target Reduction</label>
+            <label>State Mandated Reduction</label>
             <input type="range" onChange={this.changeReduction} onMouseUp={this.setReduction} value={this.normalizeReduction()} />
           </div>
           <h4>
             Reduction is currently set to {this.normalizeReduction()}%
           </h4>
-          <table>
-            <thead>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
         </div>
         <CountyBox />
       </div>

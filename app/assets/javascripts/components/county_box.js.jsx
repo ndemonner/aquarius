@@ -42,11 +42,13 @@ var CountyBox = React.createClass({
 
   render: function () {
     if (this.targetUsage() != null) {
-      var sliders = _.map(['domestic', 'industrial', 'agriculture', 'energy'], (sector) => {
+      var sliders = _.map(['industrial', 'domestic', 'energy', 'agriculture'], (sector) => {
         var changeHandler = this.changeReduction.bind(this, sector);
         var setHandler = this.setReduction.bind(this, sector);
         return <div key={sector} className="input">
-          <label>{_.capitalize(sector)} Reduction</label>
+          <label>
+            {_.capitalize(sector)} Reduction (Currently set to: {this.normalizeReduction(sector)}%)
+          </label>
           <input id={sector} name={sector} type="range"
             onChange={changeHandler}
             onMouseUp={setHandler}
